@@ -1,29 +1,28 @@
 body {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   margin: 0;
   padding: 0;
-  background: #fdfdfd;
-  color: #333;
+  background: #0d0d0d;
+  color: #eee;
 }
 
 header {
-  background: linear-gradient(90deg, #ffcc00, #ffdd55);
-  color: #222;
+  background: #111;
   padding: 30px 20px;
   text-align: center;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 0 10px #ff00cc;
 }
 
 nav a {
   margin: 0 12px;
-  color: #222;
+  color: #00ffff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s;
 }
 
 nav a:hover {
-  color: #555;
+  color: #ff00cc;
 }
 
 section {
@@ -33,14 +32,19 @@ section {
 }
 
 section h2 {
-  color: #ff9900;
   margin-bottom: 10px;
 }
 
 footer {
-  background: #222;
-  color: #fff;
+  background: #111;
+  color: #ccc;
   text-align: center;
   padding: 15px;
   font-size: 14px;
+  box-shadow: 0 0 10px #00ffff;
+}
+
+.neon {
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff;
 }
