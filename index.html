@@ -14,7 +14,9 @@
     <h1>🐝 Welcome to <span class="neon">WebHive</span></h1>
     <nav>
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+      <a href="#note-generator">Notes</a>
+      <a href="#countdown-timer">Countdown</a>
+      <a href="#mini-blog">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -24,30 +26,26 @@
     <p>WebHive is a buzzing digital hub where ideas, projects, and creativity come together. Built to be simple, stylish, and mobile-friendly, it’s your space to shine.</p>
   </section>
 
-  <section id="projects">
-    <h2 class="neon">Projects</h2>
-    <div class="card-container">
-      <!-- Auto Note Generator -->
-      <div class="card">
-        <h3>Auto Note Generator</h3>
-        <textarea id="noteArea" placeholder="Type a topic..."></textarea>
-        <button onclick="generateNote()">Generate Note</button>
-      </div>
-
-      <!-- Countdown Timer -->
-      <div class="card">
-        <h3>Countdown Timer</h3>
-        <p id="countdown"></p>
-      </div>
-
-      <!-- Mini Blog -->
-      <div class="card">
-        <h3>Mini Blog</h3>
-        <div id="blog"></div>
-      </div>
-    </div>
+  <!-- Auto Note Generator -->
+  <section id="note-generator">
+    <h2 class="neon">Auto Note Generator</h2>
+    <textarea id="noteArea" placeholder="Type a topic..."></textarea>
+    <button onclick="generateNote()">Generate Note</button>
   </section>
 
+  <!-- Countdown Timer -->
+  <section id="countdown-timer">
+    <h2 class="neon">Countdown Timer</h2>
+    <p id="countdown"></p>
+  </section>
+
+  <!-- Mini Blog -->
+  <section id="mini-blog">
+    <h2 class="neon">Mini Blog</h2>
+    <div id="blog"></div>
+  </section>
+
+  <!-- Contact -->
   <section id="contact">
     <h2 class="neon">Contact</h2>
     <form class="contact-form" action="mailto:cd521192@gmail.com" method="post" enctype="text/plain">
