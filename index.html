@@ -15,6 +15,7 @@
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
+    <button id="theme-toggle">Switch Theme</button>
   </header>
 
   <section id="about">
@@ -62,5 +63,12 @@
   <footer>
     <p>© 2026 WebHive — Created by Chisom David</p>
   </footer>
+
+  <script>
+    const toggleBtn = document.getElementById('theme-toggle');
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-mode');
+    });
+  </script>
 </body>
 </html>
