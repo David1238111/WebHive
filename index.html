@@ -1,74 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>WebHive</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <button id="theme-toggle" aria-label="Toggle theme">🌗</button>
+
   <header>
-    <h1>🐝 Welcome to <span class="neon">WebHive</span></h1>
+    <h1>🐝 Welcome to <span class="brand">WebHive</span></h1>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </nav>
-    <button id="theme-toggle">Switch Theme</button>
   </header>
 
-  <section id="about">
-    <h2 class="neon">About WebHive</h2>
-    <p>WebHive is a buzzing digital hub where ideas, projects, and creativity come together. Built to be simple, stylish, and mobile-friendly, it’s your space to shine.</p>
-  </section>
+  <main>
+    <section id="about">
+      <h2 class="accent">About WebHive</h2>
+      <p>WebHive is a buzzing digital hub where ideas, projects, and creativity come together. Built to be simple, stylish, and mobile-friendly, it’s your space to shine.</p>
+    </section>
 
-  <section id="projects">
-    <h2 class="neon">Projects</h2>
-    <div class="card-container">
-      <div class="card">
-        <h3>Quote Generator</h3>
-        <p>A fun tool that displays random inspirational quotes with a neon twist.</p>
-        <a href="#">View Project</a>
+    <section id="projects">
+      <h2 class="accent">Projects</h2>
+      <div class="card-container">
+        <article class="card">
+          <h3>Quote Generator</h3>
+          <p>A small tool that displays random inspirational quotes with a subtle neon accent.</p>
+          <a href="#" class="btn">View Project</a>
+        </article>
+
+        <article class="card">
+          <h3>Countdown Timer</h3>
+          <p>Countdown for launches or events with a clean, responsive layout.</p>
+          <a href="#" class="btn">View Project</a>
+        </article>
+
+        <article class="card">
+          <h3>Mini Blog</h3>
+          <p>Simple blog layout to share tutorials, updates, and notes.</p>
+          <a href="#" class="btn">View Project</a>
+        </article>
       </div>
-      <div class="card">
-        <h3>Countdown Timer</h3>
-        <p>Stylish countdown timer for events, launches, or reminders.</p>
-        <a href="#">View Project</a>
-      </div>
-      <div class="card">
-        <h3>Mini Blog</h3>
-        <p>A simple blog layout to share thoughts, tutorials, or updates.</p>
-        <a href="#">View Project</a>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="contact">
-    <h2 class="neon">Contact</h2>
-    <form class="contact-form" action="mailto:cd521192@gmail.com" method="post" enctype="text/plain">
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
+    <section id="contact">
+      <h2 class="accent">Contact</h2>
+      <form class="contact-form" action="mailto:cd521192@gmail.com" method="post" enctype="text/plain">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required />
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
 
-      <label for="message">Message:</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
-      <button type="submit">Send Message</button>
-    </form>
-  </section>
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2026 WebHive — Created by Chisom David</p>
+    <p>© 2026 WebHive — Created by Chisom David • <a href="mailto:cd521192@gmail.com">cd521192@gmail.com</a></p>
   </footer>
 
   <script>
-    const toggleBtn = document.getElementById('theme-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light-mode');
-    });
+    (function () {
+      const toggle = document.getElementById('theme-toggle');
+      const body = document.body;
+      const STORAGE_KEY = 'webhive-theme';
+
+      function applyTheme(mode) {
+        if (mode === 'light') body.classList.add('light-mode');
+        else body.classList.remove('light-mode');
+        toggle.textContent = mode === 'light' ? '🌞' : '🌗';
+      }
+
+      // initialize from saved preference or system preference
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) applyTheme(saved);
+      else {
+        const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        applyTheme(prefersLight ? 'light' : 'dark');
+      }
+
+      toggle.addEventListener('click', () => {
+        const isLight = body.classList.toggle('light-mode');
+        const mode = isLight ? 'light' : 'dark';
+        localStorage.setItem(STORAGE_KEY, mode);
+        applyTheme(mode);
+      });
+    })();
   </script>
 </body>
 </html>
